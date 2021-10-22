@@ -1,0 +1,60 @@
+<% include top %>
+<% include panel %>
+<% include main %>
+<span style="display: none;"><%=records%></span>
+<div class="form-group col-sm-4">
+  <input type="text" class="form-control" onkeyup="searchContact()" id="txtSearch" placeholder="Search">
+</div>
+<table id="tblContactFull" class="table table-hover" >
+  <tr class="header" >
+    <th >ID</th>
+    <th >Date</th>
+    <th >Recipient</th>
+    <th >Total</th>
+    <th ></th>
+   
+  </tr>
+  <% if(records.length>0){for (var i=0;i<records.length;i++){ %>
+  <tr >
+    
+    <td><%=records[i].id%></td>
+    <td><%=records[i].createddate%></td>
+    <td><%=records[i].phone%></td>
+    <td><%=records[i].total%></td>
+    <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#<%=i%>">Details</button></td>
+    <div id="<%=i%>" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Transaction Details</h4>
+          </div>
+          <div class="modal-body">
+            <p>ID: <%=records[i].id%> </p>
+            <p>Status: <%=records[i].status%> </p>
+            <p>Date: <%=records[i].createddate%> </p>
+            <p>Time: <%=records[i].createdtime%></p>
+            <p>Recipient number: <%=records[i].phone%></p>
+            <p>Total amount: <%=records[i].total%> VND</p>
+            <p>Cashback: <%=records[i].cashback%> VND</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+    
+      </div>
+    </div>
+    
+
+  </tr>
+  <% }} %>
+  
+  
+</table>
+</div>
+</div>
+</div>
+<% include bottom %>

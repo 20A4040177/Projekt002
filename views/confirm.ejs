@@ -1,0 +1,74 @@
+<% include top %>
+<% include panel %>
+<% include main %>
+<form class="form-horizontal" action="/proceed" method="post">
+        <div class="form-group">
+          <label class="control-label col-sm-3" for="phoneNum">Phone number</label>
+          <div class="col-sm-5">
+            <input type="hidden" class="form-control" id="hdnPhone" value="<%=data.phone%>" name="phone">
+            <input type="hidden" class="form-control" id="" value="<%=data.id%>" name="userid">
+            <p class="form-control"><%=data.phone%></p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-3" for=""> Recipient Name</label>
+          <div class="col-sm-5">
+            <input type="hidden" class="form-control" id="hdnName" >
+            <p class="form-control"><%=data.name%></p>
+          </div>
+        </div>
+        <div class="form-group">
+                <label class="control-label col-sm-3" for="">Balance</label>
+                <div class="col-sm-5">
+                  <input type="hidden" class="form-control" id="hdnBalance" name="balance" value="<%=data.balance%>" >
+                  <p class="form-control"><%=data.balance%></p>
+                </div>
+        </div>
+        <div class="form-group">
+                <label class="control-label col-sm-3" for="">Used Points</label>
+                <div class="col-sm-5">
+                  <input type="number" class="form-control" id="txtPoint" name="usedpoints" readonly value="<%=usedpoints%>" >
+                  <input type="hidden" class="form-control"  name="points"  value="<%=data.points%>" >
+                </div>
+        </div>
+        <div class="form-group">
+                <label class="control-label col-sm-3" for="">Top up value</label>
+                <div class="col-sm-5">
+                <input class="form-select form-control" id="slbBalance" readonly value="<%=value%>">
+  
+                </input>
+                <p id="warning" class="text-danger"></p>
+                </div>
+        </div>
+        <div class="form-group">
+                <label class="control-label col-sm-3" for="">Total</label>
+                <div class="col-sm-5">
+                  <input type="number" class="form-control" id="txtTotal" name="total" value="<%=total%>" readonly >
+                </div>
+        </div>
+        <div class="form-group">
+                <label class="control-label col-sm-3" for="">Cashback (points)</label>
+                <div class="col-sm-5">
+                  <input type="number" class="form-control" id="txtCashback" value="<%=cashback%>" name="cashback" readonly >
+                </div>
+        </div>
+        <input type="hidden" value="<%=transID%>" name="transid">
+        <div class="form-group">
+            <label class="control-label col-sm-3" for="">OTP</label>
+            <div class="col-sm-5">
+              <input type="tex" class="form-control" onkeypress="return isNumber(event)" >
+            </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-6">
+            <button type="button" class="btn btn-default" onclick="history.back()">Back</button>
+          </div>
+          <div class="col-sm-6">
+                <button type="submit" class="btn btn-default" style="float: right;" id="btnConfirm">Confirm</button>
+              </div>
+        </div>
+      </form> 
+</div>
+</div>
+</div>
+<% include bottom %>

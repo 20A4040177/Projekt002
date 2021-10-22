@@ -1,0 +1,82 @@
+<% include top %>
+<% include panel %>
+<% include main %>
+<span style="display: none;"><%=contacts%></span>
+<form class="form-horizontal" id="frmPhone" method="get" action="/nextstep" onsubmit="return validateForm()">
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="txtPhone">Phone Number</label>
+      <div class="col-sm-5">
+        <input type="text" class="form-control" id="txtPhone" name="phone" onkeydown="resettxtName()" onkeypress="return isNumber(event)" minlength="10" maxlength="10" placeholder="" required>
+        <input type="hidden" class="form-control" id="txtMyPhone" value="<%=data.phone%>">
+      </div>
+      <div class="col-sm-2">
+        <button type="button" class="btn btn-default" id="btnSearchInfo" onclick="location.href=''">Search</button>
+      </div>
+      
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="txtName">Recipient Name</label>
+      <div class="col-sm-5">
+        <input type="text" class="form-control" id="txtName" name="name" readonly>
+        <input type="hidden" class="form-control" id="txtMyName" placeholder="" disabled value="<%=data.name%>">
+      </div>
+      
+     
+    </div>
+    <div class="">
+      <label class="control-label col-sm-2"></label>
+      <p id="warning" class="text-danger col-sm-5"></p>
+    </div>
+    <div class="form-group">
+      
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <div class="checkbox">
+          <label><input type="checkbox" id="cbMyPhone" onclick="cbChecked()">Top up for my phone number</label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-default" onclick="validateForm()">Submit</button>
+      </div>
+    </div>
+  </form>
+  <div class="panel panel-default">
+        <div class="panel-heading row">
+            <div class="col-sm-8">Contacts</div>
+            <div class="form-group col-sm-4">
+                <input type="text" class="form-control" onkeyup="searchContact()" id="txtSearch" placeholder="Search">
+           </div>
+        </div>
+       
+    </div>
+    <div class="panel-body" style="max-height: 400px;overflow-y: scroll;">
+          <table id="tblContact" class="table table-hover" >
+            <tr class="header">
+              <th >Short name</th>
+              <th >Phone number</th>
+              <th>Full name</th>
+             
+            </tr>
+            <% if(contacts.length>0){for (var i=0;i<contacts.length;i++){ %>
+            <tr onclick="fillFRM(this.rowIndex)">
+              
+              <td><%=contacts[i].savedname%></td>
+              <td><%=contacts[i].phone%></td>
+              <td><%=contacts[i].name%></td>
+          
+            </tr>
+            <% }} %>
+            
+          </table>
+
+          
+    </div>
+    
+  </div>
+</div>
+</div>
+</div>
+<% include bottom %>

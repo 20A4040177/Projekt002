@@ -1,0 +1,18 @@
+<span style="display: none;"><%=data%></span>
+
+<div class="container">
+    <div class="jumbotron bg-primary">
+        <p>Hello, <%=data.name%></p>
+        <form action="/logout" method="post">
+        <button type="submit">Log out</button>
+        </form>
+    </div>
+    <div class="row">
+        <div class="col-sm-4" id="panel">
+            <ul class="list-group">
+                <a href="/userpage"><li class="list-group-item <%= status1 %> text-dark">Infomation</li></a>
+                <a href="/topup"><li class="list-group-item <%= status2 %> text-dark">Top up</li></a>
+                <a href="/history"><li class="list-group-item <%= status3 %> text-dark">Transaction History</li></a>
+              </ul> 
+
+        </div>

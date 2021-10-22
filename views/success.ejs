@@ -1,0 +1,36 @@
+<% include top %>
+<% include panel %>
+<% include main %>
+<span style="display: none;"><%=trans%></span>
+<p>Transaction successful!</p>
+<a class="btn btn-default" href="/userpage">Main menu</a>
+<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Details</button>
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Transaction Details</h4>
+      </div>
+      <div class="modal-body">
+        <p>ID: <%=trans.id%> </p>
+        <p>Status: <%=trans.status%> </p>
+        <p>Date: <%=trans.createddate%> </p>
+        <p>Time: <%=trans.createdtime%></p>
+        <p>Recipient number: <%=trans.phone%></p>
+        <p>Total amount: <%=trans.total%> VND</p>
+        <p>Cashback: <%=trans.cashback%> VND</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+</div>
+</div>
+<% include bottom %>

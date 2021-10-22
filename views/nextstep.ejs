@@ -1,0 +1,84 @@
+<% include top %>
+<% include panel %>
+<% include main %>
+<form class="form-horizontal" action="/confirm" method="get">
+        <div class="form-group">
+          <label class="control-label col-sm-3" for="phoneNum">Phone number</label>
+          <div class="col-sm-5">
+            <input type="hidden" class="form-control" id="hdnPhone">
+            <p class="form-control"><%=rcpPhone%></p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-3" for="">Recipient Name</label>
+          <div class="col-sm-5">
+            <input type="hidden" class="form-control" id="hdnName" >
+            <p class="form-control"><%=rcpName%></p>
+          </div>
+        </div>
+        <div class="form-group">
+                <label class="control-label col-sm-3" for="">Balance</label>
+                <div class="col-sm-5">
+                  <input type="hidden" class="form-control" id="hdnBalance" value="<%=data.balance%>" >
+                  <p class="form-control"><%=data.balance%></p>
+                </div>
+        </div>
+        <div class="form-group">
+                <label class="control-label col-sm-3" for="">Your points</label>
+                <div class="col-sm-5">
+                  <input type="number" class="form-control" id="txtPoints" value="<%=data.points%>" readonly onchange="checkBalance()" >
+                </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-3" for="">Usable amount</label>
+          <div class="col-sm-5">
+            <input type="number" class="form-control" id="txtAvailPoints" name="usedpoints" readonly onchange="checkBalance()" >
+          </div>
+        </div>
+        <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-10">
+                  <div class="checkbox">
+                    <label><input type="checkbox" onclick="checkBalance()" id="cbPoint">Use my points (1 point = 1 VND)</label>
+                  </div>
+                </div>
+              </div>
+        <div class="form-group">
+                <label class="control-label col-sm-3" for="">Top up value</label>
+                <div class="col-sm-5">
+                <select class="form-select form-control" id="slbBalance" name="value" onchange="checkBalance()">
+                        <option value="10000">10,000</option>
+                        <option value="20000">20,000</option>
+                        <option value="30000">30,000</option>
+                        <option value="50000">50,000</option>
+                        <option value="100000">100,000</option>
+                        <option value="200000">200,000</option>
+                        <option value="500000">500,000</option>
+                </select>
+                <p id="warning" class="text-danger"></p>
+                </div>
+        </div>
+        <div class="form-group">
+                <label class="control-label col-sm-3" for="">Total</label>
+                <div class="col-sm-5">
+                  <input type="number" class="form-control" id="txtTotal" name="total"  readonly >
+                </div>
+        </div>
+        <div class="form-group">
+                <label class="control-label col-sm-3" for="">Cashback (points)</label>
+                <div class="col-sm-5">
+                  <input type="number" class="form-control" id="txtCashback" name="cashback" value="" readonly >
+                </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-6">
+            <button type="button" class="btn btn-default" onclick="history.back()">Back</button>
+          </div>
+          <div class="col-sm-6">
+                <button type="submit" class="btn btn-default" style="float: right;" id="btnNext" disabled>Next</button>
+              </div>
+        </div>
+      </form> 
+</div>
+</div>
+</div>
+<% include bottom %>
