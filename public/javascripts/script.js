@@ -54,8 +54,6 @@ const searchContact=()=>
             if (td) {
                 txtValue = td.textContent || td.innerText;
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    document.getElementById("tblContactFull").style.display = "";
-                    document.getElementById("tblContact").style.display = "none";
                   tr[i].style.display = "";
                 } else {
                   tr[i].style.display = "none";
