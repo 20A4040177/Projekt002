@@ -28,7 +28,7 @@ const cbChecked = ()=>
 }
 const fillFRM = (i)=>
 {
-    const table = document.getElementById("tblContactFull");
+    const table = document.getElementById("tblContact");
     const tr = table.getElementsByTagName("tr");
     document.getElementById('txtPhone').value=tr[i].cells[1].innerHTML;
     document.getElementById('txtName').value=tr[i].cells[2].innerHTML;

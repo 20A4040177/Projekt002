@@ -1,14 +1,14 @@
 create table users(
-id int AUTO_INCREMENT,
+id int AUTOINCREMENT,
 name varchar(50),
 phone varchar(10),
-balance decimal,
-points decimal,
+balance decimal DEFAULT 0,
+points decimal DEFAULT 0,
 OTPkey varchar(8),
 PRIMARY KEY (id)
 );
 create table contacts(
-id int AUTO_INCREMENT,
+id int AUTOINCREMENT,
 name varchar(50),
 phone varchar(10),
 savedname varchar(50),
